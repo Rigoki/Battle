@@ -91,7 +91,7 @@ button {
     margin-top: 0.5em;
     visibility: hidden;
 }
-
+.modal {cursor: default;}
 #winP img,
 #winC img {
     width: initial;
