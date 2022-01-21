@@ -72,6 +72,7 @@ button {
     background: white;
     border: solid 1px black!important;
     color: red!important;
+    cursor: default;
 }
 
 .score {
