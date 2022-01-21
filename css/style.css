@@ -1,0 +1,99 @@
+/*General*/
+
+body {
+    color: white;
+    text-shadow: black 3px 3px 5px;
+    background: url("../img/bg.jpg");
+    cursor: url("../img/cursor_main_mini.png"), pointer;
+}
+
+main {
+    background: url("../img/bg1.jpg") center no-repeat;
+    /* background-size: contain; */
+    background-size: cover;
+    height: 80vh;
+}
+
+#main {
+    background: url("../img/bg.png");
+    background-size: cover;
+    padding: 1em 0;
+    height: 80vh;
+    box-shadow: black 2px 2px 10px;
+}
+
+img {
+    width: 200px;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    box-shadow: black 2px 2px 10px;
+}
+
+header {
+    color: red;
+    text-shadow: black 3px 3px 5px;
+    text-align: center;
+}
+
+#batailleP img,
+#batailleC img {
+    width: 50px;
+}
+
+#carteC img,
+#carteP img {
+    width: 188px;
+}
+
+#pioche {
+    visibility: hidden;
+}
+
+#btnV {
+    background: white;
+    color: red;
+}
+
+input {
+    width: 100px;
+}
+
+#modV,
+#modP {
+    color: black;
+    text-shadow: none;
+}
+
+#modP h5 {
+    color: red;
+}
+
+button {
+    background: white;
+    border: solid 1px black!important;
+    color: red!important;
+}
+
+.score {
+    background: rgba(26, 25, 26, 0.63);
+    box-shadow: black 4px 4px 10px;
+    height: 60%;
+    cursor: default;
+}
+
+#thx {
+    margin-top: 10vh;
+}
+
+#winP,
+#winC {
+    margin-top: 0.5em;
+    visibility: hidden;
+}
+
+#winP img,
+#winC img {
+    width: initial;
+    box-shadow: none;
+    float: right;
+}
