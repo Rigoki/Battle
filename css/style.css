@@ -1,6 +1,7 @@
 /*General*/
 
 body {
+    font-family: 'Comfortaa', cursive;
     color: white;
     text-shadow: black 3px 3px 5px;
     background: url("../img/bg.jpg");
@@ -32,6 +33,16 @@ header {
     color: red;
     text-shadow: black 3px 3px 5px;
     text-align: center;
+}
+
+#instruct {
+    margin-left: 1.9em;
+    margin-top: 4.5em;
+    font-size: 25px;
+    color: black;
+    text-shadow: #444 2px 1px 1px;
+    position: absolute;
+    font-weight: bold;
 }
 
 #batailleP img,
@@ -125,5 +136,10 @@ button {
     }
     h3 {
         font-size: 1em;
+    }
+    #instruct {
+        margin-left: 1.8em;
+        margin-top: 4.2em;
+        font-size: 20px;
     }
 }

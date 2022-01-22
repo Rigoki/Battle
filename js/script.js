@@ -33,7 +33,7 @@ function newPackage(array) {
     for (let j = 0; j < 4; j++) {
         for (let i = 0; i < 8; i++) {
             let cardName = nom[i] + couleur[j];
-            carte = new Card(nom[i], puissance[i], score[i], couleur[j], cardName);
+            let carte = new Card(nom[i], puissance[i], score[i], couleur[j], cardName);
             array.push(carte);
         }
 
@@ -82,6 +82,7 @@ let BscoreP = 0;
 let BscoreC = 0;
 //La fonction du jeu
 function playCard() {
+    document.getElementById("instruct").style.visibility = "hidden"
     let cardPnb = deckP.length + defausseP.length;
     let cardCnb = deckC.length + defausseC.length;
     document.getElementById("cardsP").innerHTML = cardPnb;
@@ -185,6 +186,7 @@ function fermer() {
 /*Bouton Fermer*/
 function recommencer() {
     //Réinitialisation de tout sauf du score
+    document.getElementById("instruct").style.visibility = "visible";
     document.getElementById("modV").style.display = "none";
     document.getElementById("modP").style.display = "none";
     cardDeck.length = 0;
@@ -198,7 +200,7 @@ function recommencer() {
     carteC.innerHTML = " "
     carteP.innerHTML = " "
         //Recréation d'un paquet de carte.
-    newPackage();
+    newPackage(cardDeck);
     shuffleCard(cardDeck);
     distribution(cardDeck, deckP, deckC);
 
