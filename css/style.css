@@ -9,7 +9,6 @@ body {
 
 main {
     background: url("../img/bg1.jpg") center no-repeat;
-    /* background-size: contain; */
     background-size: cover;
     height: 80vh;
 }
@@ -101,4 +100,30 @@ button {
     width: initial;
     box-shadow: none;
     float: right;
+}
+
+@media screen and (max-width: 992px) {
+    main {
+        background-size: contain;
+        height: 60vh;
+    }
+    #main {
+        height: 80vh;
+    }
+    header {
+        display: none;
+    }
+    img {
+        width: 150px;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        box-shadow: black 2px 2px 10px;
+    }
+    #carteC img,
+    #carteP img {
+        width: 141.5px;
+    }
+    h3 {
+        font-size: 1em;
+    }
 }

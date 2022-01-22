@@ -1,4 +1,3 @@
-/*Boostrap*/
 /*JS*/
 let winP = document.getElementById("winP")
 let winC = document.getElementById("winC")
@@ -28,20 +27,24 @@ couleur = new Array("Trefle", "Pique", "Coeur", "Carreau");
 puissance = new Array(7, 8, 9, 10, 11, 12, 13, 14);
 score = new Array(1, 2, 3, 4, 5, 6, 7, 8);
 // Creéation du deck
-cardDeck = new Array();
 
-function newPackage() {
+
+function newPackage(array) {
     for (let j = 0; j < 4; j++) {
         for (let i = 0; i < 8; i++) {
             let cardName = nom[i] + couleur[j];
             carte = new Card(nom[i], puissance[i], score[i], couleur[j], cardName);
-            cardDeck.push(carte);
+            array.push(carte);
         }
 
     }
 }
+//Declaration des 3 decks necessaire (Le complet et celui des joueurs)
+let cardDeck = new Array();
+let deckP = new Array();
+let deckC = new Array();
 //Chargement d'un deck automatiquement à l'ouverture de la page
-window.onload = newPackage()
+window.onload = newPackage(cardDeck)
 
 // Fonction pour mélanger les cartes avec utilisation de deux variables aléatoires pour mélanger 2 par 2 500 fois.
 function shuffleCard(e) {
@@ -54,16 +57,14 @@ function shuffleCard(e) {
     }
 }
 
-deckP = new Array();
-deckC = new Array();
 
-function distribution(e) {
+function distribution(e, array1, array2) {
     //On récupère la moitié des cartes du deck (cardDeck.length / 2) et on les ajoute une par une dans le tableau deckP (.push)
     for (let i = 0; i < e.length / 2; i++) {
-        deckP.push(e[i])
+        array1.push(e[i])
     }
     for (let i = e.length / 2; i < e.length; i++) {
-        deckC.push(e[i])
+        array2.push(e[i])
     }
 }
 let carteC = document.getElementById("carteC")
@@ -199,7 +200,7 @@ function recommencer() {
         //Recréation d'un paquet de carte.
     newPackage();
     shuffleCard(cardDeck);
-    distribution(cardDeck);
+    distribution(cardDeck, deckP, deckC);
 
 
 
@@ -209,4 +210,4 @@ function recommencer() {
 }
 
 shuffleCard(cardDeck);
-distribution(cardDeck);
+distribution(cardDeck, deckP, deckC);
