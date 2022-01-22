@@ -66,13 +66,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Victoire !</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="fermer()"></button>
                 </div>
                 <div class="modal-body">
                     <p>Bravo, vous avez gagné ! Pour recommencer une partie cliquez sur recommencer.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="restart()">Recommencer</button>
+                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="recommencer()">Recommencer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="fermer()">Non</button>
                 </div>
             </div>
         </div>
@@ -82,13 +83,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Défaite !</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="fermere()"></button>
                 </div>
                 <div class="modal-body">
                     <p>Désolé vous avez perdu ! Pour vous venger cliquez sur recommencer.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-mod" data-bs-dismiss="modal" onclick="restart()">Recommencer</button>
+                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="recommencer()">Recommencer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="fermer()">Non</button>
                 </div>
             </div>
         </div>

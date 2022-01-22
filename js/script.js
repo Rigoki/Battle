@@ -7,12 +7,12 @@ let pseudo = document.getElementById("pseudo")
 let pseudonyme = document.getElementById("pseud")
 let pioche = document.getElementById("pioche")
 btnV.addEventListener('click', () => {
-    pseudonyme.innerHTML = pseudo.value;
-    btnV.style.display = "none";
-    pseudo.style.display = "none";
-    pioche.style.visibility = "visible";
-})
-
+        pseudonyme.innerHTML = pseudo.value;
+        btnV.style.display = "none";
+        pseudo.style.display = "none";
+        pioche.style.visibility = "visible";
+    })
+    // Création de l'objet cartes
 class Card {
     constructor(nom, puissance, score, couleur, cardName) {
         this.nom = nom;
@@ -27,7 +27,7 @@ nom = new Array("Sept", "Huit", "Neuf", "Dix", "Valet", "Dame", "Roi", "As");
 couleur = new Array("Trefle", "Pique", "Coeur", "Carreau");
 puissance = new Array(7, 8, 9, 10, 11, 12, 13, 14);
 score = new Array(1, 2, 3, 4, 5, 6, 7, 8);
-
+// Creéation du deck
 cardDeck = new Array();
 
 function newPackage() {
@@ -40,10 +40,10 @@ function newPackage() {
 
     }
 }
-let carteC = document.getElementById("carteC")
+//Chargement d'un deck automatiquement à l'ouverture de la page
 window.onload = newPackage()
 
-
+// Fonction pour mélanger les cartes avec utilisation de deux variables aléatoires pour mélanger 2 par 2 500 fois.
 function shuffleCard(e) {
     for (let i = 0; i < 500; i++) {
         let c1 = Math.floor(Math.random() * e.length);
@@ -57,20 +57,20 @@ function shuffleCard(e) {
 deckP = new Array();
 deckC = new Array();
 
-function distribution() {
+function distribution(e) {
     //On récupère la moitié des cartes du deck (cardDeck.length / 2) et on les ajoute une par une dans le tableau deckP (.push)
-    for (let i = 0; i < cardDeck.length / 2; i++) {
-        deckP.push(cardDeck[i])
+    for (let i = 0; i < e.length / 2; i++) {
+        deckP.push(e[i])
     }
-    for (let i = cardDeck.length / 2; i < cardDeck.length; i++) {
-        deckC.push(cardDeck[i])
+    for (let i = e.length / 2; i < e.length; i++) {
+        deckC.push(e[i])
     }
 }
-
+let carteC = document.getElementById("carteC")
 let carteP = document.getElementById("carteP")
 let piocheClick = document.getElementById("piocheClick")
 piocheClick.addEventListener("click", playCard)
-
+    //Les variables globales nécessaires pour la fonction playcard
 let defausseC = new Array();
 let defausseP = new Array();
 let defausseB = new Array();
@@ -79,22 +79,25 @@ let scoreC = 0;
 let scoreP = 0;
 let BscoreP = 0;
 let BscoreC = 0;
-
+//La fonction du jeu
 function playCard() {
     let cardPnb = deckP.length + defausseP.length;
     let cardCnb = deckC.length + defausseC.length;
     document.getElementById("cardsP").innerHTML = cardPnb;
     document.getElementById("cardsC").innerHTML = cardCnb;
+    // Si le nombre de carte d'un joueur est à 0, alors il a perdu
     if (cardPnb == 0) {
         document.getElementById("modP").style.display = "block";
-        document.getElementById("cardsC").innerHTML = 32;
+        //Le trophé s'affiche uniquement à côté du joueur ayant gagné la partie précédente.
         winC.style.visibility = "visible"
+        winP.style.visibility = "hidden"
     }
     if (cardCnb == 0) {
         document.getElementById("modV").style.display = "block";
-        document.getElementById("cardsP").innerHTML = 32;
         winP.style.visibility = "visible"
+        winC.style.visibility = "hidden"
     }
+    //Si le nombre de carte dans la pioche est de 0, on récupère celles qui sont dans la défausse.
     if (deckC.length == 0) {
         for (let i of defausseC) {
             deckC.push(i);
@@ -131,6 +134,7 @@ function playCard() {
             if (defausseB.length > 0) {
                 defausseB.length = 0;
             }
+            // Le calcule du score est simple, on ajoute la valeur de la carte gagnée et celles des cartes gagnée en cas de bataille. Puis on remet le score bataille à 0
             scoreC += playerCard.score;
             scoreC += BscoreC
             BscoreC = 0;
@@ -150,6 +154,7 @@ function playCard() {
             if (defausseB.length > 0) {
                 defausseB.length = 0;
             }
+            // Le calcule du score est simple, on ajoute la valeur de la carte gagnée et celles des cartes gagnée en cas de bataille. Puis on remet le score bataille à 0
             scoreP += compCard.score
             scoreP += BscoreP;
             BscoreP = 0;
@@ -158,8 +163,6 @@ function playCard() {
         if (compCard.puissance == playerCard.puissance) {
             defausseB.push(playerCard, compCard);
             bataille = true;
-            let audio = new Audio("../audio/Yoo.mp3");
-            audio.play();
         }
     } else {
         //On défausse les cartes dans une défausse spéciale bataille que le joueur gagnant emporte.
@@ -169,13 +172,41 @@ function playCard() {
         carteC.innerHTML = '<img src="img/backcartebleuegrandebatrect.png" class="img-thumbnail rounded"  alt="" ></img>'
         carteP.innerHTML = '<img src="img/backcartegrandebatrect.png"  class="img-thumbnail rounded" alt="" ></img>'
         bataille = false;
+        //Un score par joueur pour ne pas compter ses propres cartes.
         BscoreC += playerCardB.score;
         BscoreP += compCardB.score;
     }
 }
-
-function restart() {
-    location.reload()
+/*Bouton "recommencer"*/
+function fermer() {
+    location.reload();
 }
-shuffleCard(cardDeck)
-distribution()
+/*Bouton Fermer*/
+function recommencer() {
+    //Réinitialisation de tout sauf du score
+    document.getElementById("modV").style.display = "none";
+    document.getElementById("modP").style.display = "none";
+    cardDeck.length = 0;
+    defausseB.length = 0;
+    defausseC.length = 0;
+    defausseP.length = 0;
+    deckP.length = 0;
+    deckC.length = 0;
+    document.getElementById("cardsP").innerHTML = 16;
+    document.getElementById("cardsC").innerHTML = 16;
+    carteC.innerHTML = " "
+    carteP.innerHTML = " "
+        //Recréation d'un paquet de carte.
+    newPackage();
+    shuffleCard(cardDeck);
+    distribution(cardDeck);
+
+
+
+
+
+
+}
+
+shuffleCard(cardDeck);
+distribution(cardDeck);

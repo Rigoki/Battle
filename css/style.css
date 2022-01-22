@@ -78,7 +78,7 @@ button {
 .score {
     background: rgba(26, 25, 26, 0.63);
     box-shadow: black 4px 4px 10px;
-    height: 60%;
+    height: 65%;
     cursor: default;
 }
 
@@ -91,7 +91,11 @@ button {
     margin-top: 0.5em;
     visibility: hidden;
 }
-.modal {cursor: default;}
+
+.modal {
+    cursor: default;
+}
+
 #winP img,
 #winC img {
     width: initial;
