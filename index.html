@@ -40,11 +40,15 @@
     </div>
 
     <main class="container">
-        <div id="main" class="row">
+        <div id="carte" class="row">
             <div class="col-6 col-lg-3" id="pioche">
-                <img src="img/backcartebleue.png" class="img-thumbnail rounded" alt="carte retournée"> <br>
-                <p id="instruct">Cliquez ici</p>
-                <img src="img/backcarte.png" class="img-thumbnail rounded" alt="" id='piocheClick'>
+                <div class="col-12">
+                    <img src="img/backcartebleue.png" class="img-thumbnail rounded" alt="carte retournée"> <br>
+                    <p id="instruct">Cliquez ici</p>
+                </div>
+                <div class="col-12">
+                    <img src="img/backcarte.png" class="img-thumbnail rounded" alt="" id='piocheClick'>
+                </div>
 
             </div>
             <div class="col-6 col-lg-3">
@@ -95,42 +99,42 @@
 
 
     <!-- Modals -->
-    <div class="modal " tabindex="-1 " id="modV ">
-        <div class="modal-dialog modal-sm modal-dialog-centered ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title ">Victoire !</h5>
-                    <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close " onclick="fermer() "></button>
+    <div class="modal" tabindex="-1 " id="modV">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Victoire !</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="fermer()"></button>
                 </div>
-                <div class="modal-body ">
+                <div class="modal-body">
                     <p>Bravo, vous avez gagné ! Pour recommencer une partie cliquez sur recommencer.</p>
                 </div>
-                <div class="modal-footer ">
-                    <button type="button " class="btn " data-bs-dismiss="modal " onclick="recommencer() ">Recommencer</button>
-                    <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="fermer() ">Non</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="recommencer()">Recommencer</button>
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal" onclick="fermer()">Non</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal " tabindex="-1 " id="modP ">
-        <div class="modal-dialog modal-sm modal-dialog-centered ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title ">Défaite !</h5>
-                    <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close " onclick="fermere() "></button>
+    <div class="modal " tabindex="-1" id="modP">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Défaite !</h5>
+                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close" onclick="fermer()"></button>
                 </div>
-                <div class="modal-body ">
+                <div class="modal-body">
                     <p>Désolé vous avez perdu ! Pour vous venger cliquez sur recommencer.</p>
                 </div>
-                <div class="modal-footer ">
-                    <button type="button " class="btn " data-bs-dismiss="modal " onclick="recommencer() ">Recommencer</button>
-                    <button type="button " class="btn btn-secondary " data-bs-dismiss="modal " onclick="fermer() ">Non</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal" onclick="recommencer()">Recommencer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="fermer()">Non</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Liens Scripts -->
-    <script src="js/script.js "></script>
+    <script src="js/script.js"></script>
 
 </body>
 

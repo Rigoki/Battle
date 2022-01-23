@@ -14,7 +14,7 @@ main {
     cursor: url("../img/cursor_main_mini.png"), pointer;
 }
 
-#main {
+#carte {
     background: url("../img/bg.png");
     background-size: cover;
     padding: 1em 0;
@@ -82,7 +82,7 @@ input {
 button {
     background: white;
     border: solid 1px black!important;
-    color: red!important;
+    color: rgb(202, 110, 110)!important;
     cursor: default;
 }
 

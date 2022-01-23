@@ -112,8 +112,9 @@ function playCard() {
         winC.style.visibility = "visible";
         winP.style.visibility = "hidden";
         //Reset du score joueur en cas de défaite désolé  seul les plus méritant entre au tableau ! ;)
-        scoreP = 0;
         scoreC = 0;
+        scoreP = 0;
+
     }
     if (cardCnb == 0) {
         document.getElementById("modV").style.display = "block";
@@ -231,8 +232,8 @@ function recommencer() {
 /*High score*/
 document.getElementById("scorebtn").addEventListener('click', () => {
     if (document.getElementById("scorebtn").checked) {
-        document.getElementById("hscore").style.display = "block";
-    } else { document.getElementById("hscore").style.display = "none"; }
+        document.getElementById("hscore").style.visibility = "visible";
+    } else { document.getElementById("hscore").style.visibility = "hidden"; }
 });
 
 const hiscores = JSON.parse(localStorage.getItem('hiscores')) || [];
