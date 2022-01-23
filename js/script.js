@@ -8,7 +8,7 @@ let pioche = document.getElementById("pioche");
 
 //Audio
 
-const music = new Audio(src="../audio/hono-no-megami.mp3");
+const music = new Audio("../audio/hono-no-megami.mp3");
 music.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
