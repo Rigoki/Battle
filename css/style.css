@@ -89,6 +89,7 @@ button {
 .score {
     background: rgba(26, 25, 26, 0.63);
     box-shadow: black 4px 4px 10px;
+    min-height: 35%;
     height: fit-content;
     cursor: default;
 }
@@ -114,6 +115,18 @@ button {
     float: right;
 }
 
+footer {
+    margin-top: 100px!important;
+}
+
+#hscore {
+    text-align: center;
+}
+
+.scoretable {
+    margin: 0 auto;
+}
+
 
 /*Radio*/
 
@@ -131,11 +144,6 @@ button {
     color: #fff;
     box-shadow: none;
 }
-
-
-/* .form-check-input:active {
-    color: #fff;
-} */
 
 
 /*highscore*/
@@ -178,7 +186,7 @@ td {
         margin-top: 4.2em;
         font-size: 20px;
     }
-    #hscore {
-        margin-top: 200px;
+    footer {
+        margin-top: 500px!important;
     }
 }

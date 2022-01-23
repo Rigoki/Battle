@@ -232,8 +232,8 @@ function recommencer() {
 /*High score*/
 document.getElementById("scorebtn").addEventListener('click', () => {
     if (document.getElementById("scorebtn").checked) {
-        document.getElementById("hscore").style.visibility = "visible";
-    } else { document.getElementById("hscore").style.visibility = "hidden"; }
+        document.getElementById("hscore").style.display = "block";
+    } else { document.getElementById("hscore").style.display = "none"; }
 });
 
 const hiscores = JSON.parse(localStorage.getItem('hiscores')) || [];
