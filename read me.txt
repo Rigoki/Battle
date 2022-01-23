@@ -1,3 +1,4 @@
+version 1.5 : Ajout d'une musique activable, d'une mention légale, de remerciement, et d'un bouton on / off pour le high score
 version 1.4 : Ajout d'un tableau "Meilleur score" et la partie "score" et reset des scores en cas de défaite est adaptative en hauteur, selon les informations nécessaires.
 version 1.3.2 : Ajout d'instructions au lancement
 version 1.3.1 : Ajout d'un media querry pour le fond d'écran

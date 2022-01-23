@@ -5,7 +5,23 @@ let btnV = document.getElementById("btnV");
 let pseudo = document.getElementById("pseudo");
 let pseudonyme = document.getElementById("pseud");
 let pioche = document.getElementById("pioche");
-//Récupérer le pseudonyme du joueur
+
+//Audio
+
+let music = new Audio("../audio/hono-no-megami.mp3");
+music.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+document.getElementById("music").addEventListener('click', () => {
+        if (document.getElementById("music").checked) {
+            music.play();
+        } else {
+            music.pause();
+            music.currentTime = 0;
+        }
+    })
+    //Récupérer le pseudonyme du joueur
 btnV.addEventListener('click', () => {
         pseudonyme.innerHTML = pseudo.value;
         btnV.style.display = "none";
@@ -212,6 +228,12 @@ function recommencer() {
 }
 
 /*High score*/
+document.getElementById("scorebtn").addEventListener('click', () => {
+    if (document.getElementById("scorebtn").checked) {
+        document.getElementById("hscore").style.display = "block";
+    } else { document.getElementById("hscore").style.display = "none"; }
+});
+
 const hiscores = JSON.parse(localStorage.getItem('hiscores')) || [];
 const scoreList = document.querySelector('.scoretable');
 //Fonction pour remplir le tableau de score.
@@ -223,8 +245,8 @@ function populateTable() {
 //Fonction qui vérifie le score à chaque début et fin de partie et ne conserve que les 3 meilleurs.
 function checkScore() {
     let worstScore = 0;
-
-    if (hiscores.length > 3) {
+    //Permet de comparer avec l'avant dernière entrée du tableau
+    if (hiscores.length > 2) {
         worstScore = hiscores[hiscores.length - 1].scoreP;
     }
     //Si le score actuelle est meilleurs que le pire score, il est ajouté au tableau.

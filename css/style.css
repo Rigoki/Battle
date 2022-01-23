@@ -5,13 +5,13 @@ body {
     color: white;
     text-shadow: black 3px 3px 5px;
     background: url("../img/bg.jpg");
-    cursor: url("../img/cursor_main_mini.png"), pointer;
 }
 
 main {
     background: url("../img/bg1.jpg") center no-repeat;
     background-size: cover;
     height: 80vh;
+    cursor: url("../img/cursor_main_mini.png"), pointer;
 }
 
 #main {
@@ -115,6 +115,29 @@ button {
 }
 
 
+/*Radio*/
+
+.form-check-input:checked {
+    color: #fff;
+    border-color: white;
+    background-color: red;
+}
+
+.form-check-input {
+    margin-left: 1em;
+}
+
+.form-check-input:focus {
+    color: #fff;
+    box-shadow: none;
+}
+
+
+/* .form-check-input:active {
+    color: #fff;
+} */
+
+
 /*highscore*/
 
 tr,
@@ -154,5 +177,8 @@ td {
         margin-left: 1.8em;
         margin-top: 4.2em;
         font-size: 20px;
+    }
+    #hscore {
+        margin-top: 200px;
     }
 }
