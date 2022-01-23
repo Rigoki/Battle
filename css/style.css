@@ -93,9 +93,9 @@ button {
     height: fit-content;
     cursor: default;
 }
-
-#thx {
-    margin-top: 10vh;
+#hscore {
+    display: none;
+}
 }
 
 #winP,
