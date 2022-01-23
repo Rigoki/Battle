@@ -7,7 +7,6 @@ let pseudonyme = document.getElementById("pseud");
 let pioche = document.getElementById("pioche");
 
 //Audio
-
 let music = document.createElement("audio");
 music.src = "./audio/hono-no-megami.mp3";
 music.addEventListener('ended', function() {
