@@ -59,7 +59,8 @@ header {
     visibility: hidden;
 }
 
-#btnV {
+#btnV,
+#reset {
     background: white;
     color: red;
 }
@@ -88,7 +89,7 @@ button {
 .score {
     background: rgba(26, 25, 26, 0.63);
     box-shadow: black 4px 4px 10px;
-    height: 65%;
+    height: fit-content;
     cursor: default;
 }
 
@@ -111,6 +112,18 @@ button {
     width: initial;
     box-shadow: none;
     float: right;
+}
+
+
+/*highscore*/
+
+tr,
+td {
+    border: 1px solid black;
+    width: 150px;
+    background: rgba(26, 25, 26, 0.63);
+    box-shadow: black 4px 4px 10px;
+    padding: 0.5em;
 }
 
 @media screen and (max-width: 992px) {

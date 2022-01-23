@@ -1,10 +1,11 @@
 /*JS*/
-let winP = document.getElementById("winP")
-let winC = document.getElementById("winC")
-let btnV = document.getElementById("btnV")
-let pseudo = document.getElementById("pseudo")
-let pseudonyme = document.getElementById("pseud")
-let pioche = document.getElementById("pioche")
+let winP = document.getElementById("winP");
+let winC = document.getElementById("winC");
+let btnV = document.getElementById("btnV");
+let pseudo = document.getElementById("pseudo");
+let pseudonyme = document.getElementById("pseud");
+let pioche = document.getElementById("pioche");
+//Récupérer le pseudonyme du joueur
 btnV.addEventListener('click', () => {
         pseudonyme.innerHTML = pseudo.value;
         btnV.style.display = "none";
@@ -91,13 +92,18 @@ function playCard() {
     if (cardPnb == 0) {
         document.getElementById("modP").style.display = "block";
         //Le trophé s'affiche uniquement à côté du joueur ayant gagné la partie précédente.
-        winC.style.visibility = "visible"
-        winP.style.visibility = "hidden"
+        winC.style.visibility = "visible";
+        winP.style.visibility = "hidden";
+        //Reset du score joueur en cas de défaite désolé  seul les plus méritant entre au tableau ! ;)
+        scoreP = 0;
+        scoreC = 0;
     }
     if (cardCnb == 0) {
         document.getElementById("modV").style.display = "block";
-        winP.style.visibility = "visible"
-        winC.style.visibility = "hidden"
+        winP.style.visibility = "visible";
+        winC.style.visibility = "hidden";
+        //Ajoute le score actuelle au tableau si nécessaire.
+        checkScore();
     }
     //Si le nombre de carte dans la pioche est de 0, on récupère celles qui sont dans la défausse.
     if (deckC.length == 0) {
@@ -203,13 +209,46 @@ function recommencer() {
     newPackage(cardDeck);
     shuffleCard(cardDeck);
     distribution(cardDeck, deckP, deckC);
-
-
-
-
-
-
 }
 
+/*High score*/
+const hiscores = JSON.parse(localStorage.getItem('hiscores')) || [];
+const scoreList = document.querySelector('.scoretable');
+//Fonction pour remplir le tableau de score.
+function populateTable() {
+    scoreList.innerHTML = hiscores.map((row) => {
+        return `<tr><td>${row.clicker}</td><td>${row.scoreP}</tr>`;
+    }).join('');
+}
+//Fonction qui vérifie le score à chaque début et fin de partie et ne conserve que les 3 meilleurs.
+function checkScore() {
+    let worstScore = 0;
+
+    if (hiscores.length > 3) {
+        worstScore = hiscores[hiscores.length - 1].scoreP;
+    }
+    //Si le score actuelle est meilleurs que le pire score, il est ajouté au tableau.
+    if (scoreP > worstScore) {
+        const clicker = pseudo.value;
+        hiscores.push({ scoreP, clicker });
+    }
+    //Permet de trier le tableau en fonction des scores pour que le premier soit toujours en tête de tableau.
+    hiscores.sort((a, b) => a.scoreP > b.scoreP ? -1 : 1);
+    //Permet de conserver 3 scores et supprime automatiquement le 4eme.
+    if (hiscores.length > 3) {
+        hiscores.pop();
+    }
+    populateTable();
+    localStorage.setItem('hiscores', JSON.stringify(hiscores));
+}
+
+function clearScores() {
+    hiscores.splice(0, hiscores.length);
+    localStorage.setItem('hiscores', JSON.stringify(hiscores));
+    populateTable();
+}
+
+// Fonctions aux lancement de la page
+checkScore()
 shuffleCard(cardDeck);
 distribution(cardDeck, deckP, deckC);
